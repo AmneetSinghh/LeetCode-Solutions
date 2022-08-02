@@ -44,23 +44,37 @@ public:
         
         
         // simple 2 array 1d approach
-        vector<int> prev(2,0),cur(2,0);
-        prev[0]=0,prev[1]=0;
+//         vector<int> prev(2,0),cur(2,0);
+//         prev[0]=0,prev[1]=0;
+//         for(int i=n-1;i>=0;i--){
+//             for(int buy=0;buy<=1;buy++){
+//                 long profit=0;
+//                 if(buy){
+//                     profit=max(-a[i]+prev[0],prev[1]);// buy or not buy
+//                 }
+//                 else{
+//                     profit=max(a[i]+prev[1],prev[0]);// sell or not sell
+//                 }
+//                 cur[buy]=profit;
+//             }
+//             prev=cur;
+//         }
+        
+//         return prev[1];// buy.
+        
+        
+        
+        // simple 4 variables approach.
+        int prevBuy=0,prevNotBuy=0,curBuy=0,curNotBuy=0;
         for(int i=n-1;i>=0;i--){
-            for(int buy=0;buy<=1;buy++){
-                long profit=0;
-                if(buy){
-                    profit=max(-a[i]+prev[0],prev[1]);// buy or not buy
-                }
-                else{
-                    profit=max(a[i]+prev[1],prev[0]);// sell or not sell
-                }
-                cur[buy]=profit;
-            }
-            prev=cur;
+            curBuy=max(-a[i]+prevNotBuy,prevBuy);// buy or not buy            curBuy case
+            curNotBuy=max(a[i]+prevBuy,prevNotBuy);// sell or not sell           curNotBuy case.
+            prevBuy=curBuy;
+            prevNotBuy=curNotBuy;
         }
         
-        return prev[1];// buy.
+        return prevBuy;
+        
 
     }
 };
