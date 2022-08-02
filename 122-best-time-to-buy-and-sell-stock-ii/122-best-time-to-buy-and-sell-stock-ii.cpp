@@ -1,12 +1,7 @@
 class Solution {
 public:
     long dfs(int i,int buy, vector<int> &a, int n, vector<vector<int>> &dp){
-        if(i==n){
-            if(buy){
-                return 0;
-            }
-            return INT_MIN;// we have to make this minimum.
-        }
+        if(i==n)return 0;
         if(dp[i][buy]!=-1)return dp[i][buy];
         long profit=0;
         if(buy){
