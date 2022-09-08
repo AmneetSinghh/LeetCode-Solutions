@@ -24,9 +24,7 @@ public:
                 else if(mat[mid][peak] < mat[mid+1][peak])s= mid + 1;
                 else index=mid,e=mid-1;
             }
-        
-            int peakVal = findMax(mat[index]);
-            return {index, peakVal};
+        return {-1,-1};
             
     }
 };
