@@ -4,7 +4,7 @@ class Solution {
       int n = fruits.size();
       int ans = 0;
       int slidingPointer = 0, slidingStart = 0;
-      unordered_map < int, int > st;
+      map < int, int > st;
       while (slidingPointer < n) {
         ++st[fruits[slidingPointer]];
         while (st.size() > 2) {
