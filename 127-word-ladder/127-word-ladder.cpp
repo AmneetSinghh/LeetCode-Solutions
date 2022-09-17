@@ -5,7 +5,7 @@ public:
         q.push({a,1});
         int flag=0;
         // Faster than my previous solution;
-        unordered_set<string> s(words.begin(),words.end());
+        set<string> s(words.begin(),words.end());
         while(!q.empty())
         {
             string cur=q.front().first;
