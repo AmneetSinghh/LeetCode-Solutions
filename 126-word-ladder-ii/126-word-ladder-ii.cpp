@@ -5,16 +5,19 @@ class Solution {
             count += a[i] != b[i];
         return count == 1;
     }
+    
     void dfs(unordered_map<string,vector<string>> &mp,vector<string>& path,int idx,string& beginWord,vector<vector<string>>& result) {
-        if (path[idx] == beginWord) {
-            result.push_back({});
-            for (int i=idx; i>=0; i--)
-                result.back().push_back(path[i]);
+        if (path[path.size()-1] == beginWord) {
+            vector<string> val;
+            for(int i=path.size()-1;i>=0;i--)val.push_back(path[i]);
+            result.push_back(val);
+            return;
         } 
         else 
             for (auto word : mp[path[idx]]) {
-                path[idx+1] = word;
+                path.push_back(word);
                 dfs(mp,path,idx+1,beginWord,result);
+                path.pop_back();
             }   
     }
 public:
@@ -62,9 +65,8 @@ public:
             }
         }                            
         vector<vector<string>> result;
-        vector<string> path(500);
-        path[0] = endWord;
-        
+        vector<string> path;
+        path.push_back(endWord);
         dfs(bfs,path,0,beginWord,result);
         
         return result;
