@@ -30,7 +30,7 @@ public:
             for (auto& [weight, nextNode]: edges[currNode]) {
                 int nextCost = currCost + weight;
                 int nextStop = currStop + 1;
-                if (nextCost < costs[nextNode] || nextStop < stops[nextNode]) {
+                if (nextCost < costs[nextNode]   || (nextCost>=costs[nextNode] && nextStop < stops[nextNode])) {
 					// Push in heap only if either less stops incurred or less cost incurred.
                     costs[nextNode] = nextCost;
                     stops[nextNode] = nextStop;
