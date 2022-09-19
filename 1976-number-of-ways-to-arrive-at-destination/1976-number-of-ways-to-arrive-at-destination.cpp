@@ -19,7 +19,7 @@ public:
         while(!pq.empty()){
             pi temp = pq.top();
             pq.pop();
-            // if(dist[temp.second]<temp.first) continue;
+            if(dist[temp.second]<temp.first) continue;
             for(auto x:adj[temp.second]){
                 if(dist[x[0]]==(long long)x[1]+temp.first){
                     dp[x[0]] = (dp[x[0]]+dp[temp.second])%mod;
