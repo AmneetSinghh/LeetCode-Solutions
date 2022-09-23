@@ -4,16 +4,16 @@ public:
     void dfs(int node, int parent, vector<int> &vis, vector<int> &tin, vector<int> &low, int &timer, vector<int> adj[]) {
     vis[node] = 1;
     tin[node] = low[node] = timer++;
-    for(auto it: adj[node]) {
-        if(it == parent) continue;
-        if(!vis[it]) {
-            dfs(it, node, vis, tin, low, timer, adj);
-            low[node] = min(low[node], low[it]);
-            if(low[it] > tin[node]) {
-               res.push_back({node,it});
+    for(auto child: adj[node]) {
+        if(child == parent) continue;
+        if(!vis[child]) {
+            dfs(child, node, vis, tin, low, timer, adj);
+            low[node] = min(low[node], low[child]);
+            if(tin[node]<low[child]) {
+               res.push_back({node,child});
             }
         } else {
-            low[node] = min(low[node], tin[it]);
+            low[node] = min(low[node], tin[child]);
         }
     }
 }
