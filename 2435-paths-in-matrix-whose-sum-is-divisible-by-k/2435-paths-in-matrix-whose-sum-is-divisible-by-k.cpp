@@ -15,12 +15,6 @@ public:
     
     
     int numberOfPaths(vector<vector<int>>& grid, int k) {
-        // for(int i = 0; i < grid.size();i++){
-        //     for(int j = 0;j < grid[0].size();j++){
-        //         grid[i][j] = grid[i][j]%k;
-        //     }
-        // }
-        // rest work
         K=k;
         vector<vector<vector<int>>> dp(grid.size()+1 , vector<vector<int>>(grid[0].size()+1 , vector<int> (k , - 1)));
         return helper(grid,0,0,0,dp);
