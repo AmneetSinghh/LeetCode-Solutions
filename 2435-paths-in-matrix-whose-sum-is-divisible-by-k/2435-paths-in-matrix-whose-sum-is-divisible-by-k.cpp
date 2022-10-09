@@ -2,7 +2,7 @@ class Solution {
 public:
     
     int m = 1e9+7;
-    int K=0;
+    int K=0;// sum here is < K
     int helper(vector<vector<int>>&grid, int i, int j, int sum, vector<vector<vector<int>>> &dp){
         if(i >= grid.size() || j >=grid[0].size()) return 0;
         if(i==grid.size()-1&&j==grid[0].size()-1){
