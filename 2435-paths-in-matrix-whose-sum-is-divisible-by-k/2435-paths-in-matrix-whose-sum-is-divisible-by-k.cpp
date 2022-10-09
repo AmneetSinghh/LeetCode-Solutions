@@ -11,7 +11,7 @@ public:
         }
         if(dp[i][j][sum]!=-1) return dp[i][j][sum];
         int &final = dp[i][j][sum];
-        sum = (sum%K + grid[i][j]%K)%K;
+        sum = (sum + grid[i][j])%K;
        return final = (helper(grid,i+1,j,sum,dp)%m + helper(grid,i,j+1,sum,dp)%m)%m;
     }
     
