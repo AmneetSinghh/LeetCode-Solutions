@@ -9,7 +9,6 @@ public:
            if((sum+ grid[i][j])%K!=0) return 0;
             else return 1;
         }
-        sum = sum%K;
         if(dp[i][j][sum]!=-1) return dp[i][j][sum];
         int &final = dp[i][j][sum];
         sum = (sum%K + grid[i][j]%K)%K;
