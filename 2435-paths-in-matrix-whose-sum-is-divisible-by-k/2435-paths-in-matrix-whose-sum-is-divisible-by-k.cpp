@@ -15,12 +15,11 @@ public:
     
     
     int numberOfPaths(vector<vector<int>>& grid, int k) {
-        // memset(dp,-1,sizeof(dp));
-        for(int i = 0; i < grid.size();i++){
-            for(int j = 0;j < grid[0].size();j++){
-                grid[i][j] = grid[i][j]%k;
-            }
-        }
+        // for(int i = 0; i < grid.size();i++){
+        //     for(int j = 0;j < grid[0].size();j++){
+        //         grid[i][j] = grid[i][j]%k;
+        //     }
+        // }
         // rest work
         K=k;
         vector<vector<vector<int>>> dp(grid.size()+1 , vector<vector<int>>(grid[0].size()+1 , vector<int> (k , - 1)));
